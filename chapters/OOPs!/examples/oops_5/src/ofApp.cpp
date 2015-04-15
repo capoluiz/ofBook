@@ -52,7 +52,9 @@ void ofApp::mouseDragged(int x, int y, int button){
 void ofApp::mousePressed(int x, int y, int button){
   
     for (int i =0; i < myBall.size(); i++) {
-        float distance = ofDist(x,y, myBall[i].x, myBall[i].y); // a method OF give us to check the distance between two coordinates
+        //float distance = ofDist(x,y, myBall[i].x, myBall[i].y); // a method OF give us to check the distance between two coordinates
+        //correction:  
+        float distance = ofDist(ofGetMouseX(), ofGetMouseY(), myBall[i].x, myBall[i].y );
         
         if (distance < myBall[i].dim) {
             myBall.erase(myBall.begin()+i); // we need to use an iterator/ reference to the vector position we want to delete
